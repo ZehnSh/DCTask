@@ -1,4 +1,5 @@
 'use client';
+import { set } from 'mongoose';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 
@@ -38,7 +39,6 @@ const Home = () => {
 
     const handleMintButtonClick = async () => {
         const data = JSON.stringify({account});
-        console.log(data,account);
         const res = await fetch('/api/nftAddress',{
             method:'POST',
             body: data,
@@ -51,8 +51,9 @@ const Home = () => {
         }
 
         router.refresh();
-        router.push("/");
-        alert('Minting image...');
+       
+        alert('Minting Successful');
+        setSelectedImage(null);
       };
 
 
