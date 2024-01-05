@@ -15,10 +15,10 @@ export async function POST(req) {
 }
 
 export async function GET() {
-try{
-    const nftAddress = await NFT.find();
-    return NextResponse.json({ nftAddress }, { status: 200 });
-} catch (e) {
-    return NextResponse.json({ message: 'error', e }, { status: 500 });
-}
+    try {
+        const nftAddress = await NFT.find();
+        return NextResponse.json({ nftAddress }, { status: 200 });
+    } catch (e) {
+        return NextResponse.json({ message: 'error', e }, { status: 500 });
+    }
 }
